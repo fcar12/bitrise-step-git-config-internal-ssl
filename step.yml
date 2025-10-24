@@ -1,0 +1,61 @@
+title: |-
+  Git Config Internal SSL
+summary: |
+  Git Config Internal SSL
+description: |
+  Git Config Internal SSL
+website: https://github.com/fcar12/bitrise-step-git-config-internal-ssl
+source_code_url: https://github.com/fcar12/bitrise-step-git-config-internal-ssl
+support_url: https://github.com/fcar12/bitrise-step-git-config-internal-ssl/issues
+
+type_tags:
+  - access-control
+
+toolkit:
+  bash:
+    entry_file: step.sh
+
+
+inputs:
+  - certicate_url:
+    opts:
+      title: "Certificate URL"
+      summary: URL for certificate file.
+      description: |
+        URL for certificate file.
+      is_required: true
+  - key_url:
+    opts:
+      title: "Key URL"
+      summary: URL for key file.
+      description: |
+        URL for key file.
+      is_required: true
+  - domain:
+    opts:
+      title: "Domain"
+      summary: Domain to configure git for.
+      description: |
+        Domain to configure git for.
+      is_required: true 
+  - Authorization_token:
+    opts:
+      title: "Authorization Token"
+      summary: Optional token used for authorization header.
+      description: |
+        Optional token used for authorization header. If provided, it will be added as an extra header in the git configuration.
+      is_required: false
+
+outputs:
+  - GIT_CERTIFICATE_PATH:
+    opts:
+      title: "Certificate Path"
+      summary: Path to the downloaded certificate file.
+      description: |
+        Path to the downloaded certificate file.
+  - GIT_KEY_PATH:
+    opts:
+      title: "Key Path"
+      summary: Path to the downloaded key file.
+      description: |  
+        Path to the downloaded key file.

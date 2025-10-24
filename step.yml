@@ -1,9 +1,12 @@
 title: |-
   Git Config Internal SSL
 summary: |
-  Git Config Internal SSL
+  Setup git to use a private certificate/key pair for SSL connections.
 description: |
-  Git Config Internal SSL
+  Download private certificate/key pair and expose local path to files.
+  Configure system git settings for SSL using private certificate/key.
+  This is usually executed in the begging of your workflow so other steps can access the certificate/key file paths.
+
 website: https://github.com/fcar12/bitrise-step-git-config-internal-ssl
 source_code_url: https://github.com/fcar12/bitrise-step-git-config-internal-ssl
 support_url: https://github.com/fcar12/bitrise-step-git-config-internal-ssl/issues
@@ -38,13 +41,14 @@ inputs:
       description: |
         Domain to configure git for.
       is_required: true 
-  - Authorization_token:
+  - authorization_token:
     opts:
       title: "Authorization Token"
       summary: Optional token used for authorization header.
       description: |
         Optional token used for authorization header. If provided, it will be added as an extra header in the git configuration.
       is_required: false
+      is_sensitive: true
 
 outputs:
   - GIT_CERTIFICATE_PATH:

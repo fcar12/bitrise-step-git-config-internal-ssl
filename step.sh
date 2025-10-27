@@ -7,7 +7,6 @@ set -x
 # Print non-sensitive inputs for debugging (do NOT print secrets: password, client_cert, client_key)
 echo "--- step inputs (non-sensitive) ---"
 echo "- domain: $domain"
-echo "- authorization_token: $authorization_token"
 echo "-----------------------------------"
 
 TMP_DIR="./git_crt_key"
@@ -23,7 +22,7 @@ git config --system http.https://$domain.sslCert ~/git.crt
 git config --system http.https://$domain.sslKey ~/git.key
 
 if [ -n "$authorization_token" ]; then
-    echo "Setting token..."
+    echo "Token provided, setting authetication"
     git config --global --add http.https://$domain.extraHeader "Authorization: Bearer $authorization_token"
 fi
 

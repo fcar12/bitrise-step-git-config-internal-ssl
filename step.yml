@@ -48,6 +48,7 @@ inputs:
       description: |
         Optional token used for authorization header. If provided, it will be added as an extra header in the git configuration.
       is_required: false
+      is_sensitive: true
 
 outputs:
   - GIT_CERTIFICATE_PATH:

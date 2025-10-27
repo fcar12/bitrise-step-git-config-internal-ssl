@@ -22,7 +22,6 @@ git config --system http.https://$domain.sslCert ~/git.crt
 git config --system http.https://$domain.sslKey ~/git.key
 
 if [ -n "$authorization_token" ]; then
-    echo "Token provided, setting authetication"
     git config --global --add http.https://$domain.extraHeader "Authorization: Bearer $authorization_token"
 fi
 

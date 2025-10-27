@@ -12,7 +12,7 @@ mkdir -p "$TMP_DIR"
 curl $certicate_url -o "$CRT_PATH"
 curl $key_url -o "$KEY_PATH"
 
-git config --local http.https://$domain.sslVerify false
+git config --system http.https://$domain.sslVerify false
 git config --system http.https://$domain.sslCert ~/git.crt
 git config --system http.https://$domain.sslKey ~/git.key
 

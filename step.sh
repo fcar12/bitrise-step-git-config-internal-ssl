@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# fail if any commands fails
-set -e
-# debug log
-set -x
-
 # Print non-sensitive inputs for debugging (do NOT print secrets: password, client_cert, client_key)
 echo "--- step inputs (non-sensitive) ---"
 echo "- domain: $domain"

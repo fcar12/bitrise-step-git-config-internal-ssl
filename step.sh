@@ -9,13 +9,8 @@ echo "--- step inputs (non-sensitive) ---"
 echo "- domain: $domain"
 echo "-----------------------------------"
 
-TMP_DIR="./git_crt_key"
-CRT_PATH="$TMP_DIR/git.crt"
-KEY_PATH="$TMP_DIR/git.key"
-
-mkdir -p "$TMP_DIR"
-curl $certicate_url -o "$CRT_PATH"
-curl $key_url -o "$KEY_PATH"
+curl $certicate_url -o ~/git.crt
+curl $key_url -o ~/git.key
 
 git config --system http.https://$domain.sslVerify false
 git config --system http.https://$domain.sslCert ~/git.crt
@@ -25,5 +20,5 @@ if [ -n "$authorization_token" ]; then
     git config --global --add http.https://$domain.extraHeader "Authorization: Bearer $authorization_token"
 fi
 
-envman add --key GIT_CERTIFICATE_PATH --value $CRT_PATH
-envman add --key GIT_KEY_PATH --value $KEY_PATH
+envman add --key GIT_CERTIFICATE_PATH --value ~/git.crt
+envman add --key GIT_KEY_PATH --value ~/git.key
